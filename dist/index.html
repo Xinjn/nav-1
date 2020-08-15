@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="zh">
+
+<head class="globalHeader">
+    <meta charset="UTF-8">
+    <!-- 禁用双指放大（参考淘宝网）专业的前端工程师应该能快速的抄袭淘宝网页里的 viewport -->
+    <meta name="viewport"
+        content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no,viewport-fit=cover">
+    <title>前航-前端导航网站</title>
+    <style>
+        .icon {
+            width: 1em;
+            height: 1em;
+            vertical-align: -0.15em;
+            fill: currentColor;
+            overflow: hidden;
+        }
+    </style>
+    <link rel="stylesheet" href="style.63ddc050.css">
+</head>
+
+<body>
+    <header class="globalHeader">
+        <!-- 使用CSS添加样式时，通常首先添加class类名globalHeader（全局头部） -->
+        <!-- 不使用div包裹，高端程序员用名词标签 -->
+        <!-- 注意：点击跳转需要form表单（参考百度） -->
+        <form class="searchForm" method="get" action="https://www.baidu.com/">
+            <input name="wd" type="text">
+            <button type="submit">搜索</button>
+        </form>
+
+    </header>
+    <main class="globalMain">
+        <!-- 使用CSS添加样式时，通常首先添加class类名globalMain（全局主干） -->
+        <!-- 不使用div包裹，高端程序员用名词标签 -->
+        <ul class="siteList">
+            <!-- <li>
+                <a href="https://www.acfun.cn/">
+                    <div class="site">
+                        
+                        <div class="logo">A</div>
+                        <div class="link">acfun.com</div>
+                    </div>
+                </a>
+            </li>
+            <li>
+                <a href="https://juejin.im/">
+                    <div class="site">
+                        
+                        <div class="logo">
+                            <img src="./images/images.png" alt="">
+                        </div>
+                        <div class="link">juejin.im</div>
+                    </div>
+                </a>
+            </li> -->
+            <li class="last">
+                <div class="addButton">
+                    <!-- site:网站-->
+                    <div class="icon-wrapper">
+                        <!-- icon名字不能重复，父级更改为iconWrapper-->
+                        <svg class="icon">
+                            <use xlink:href="#icon-add"></use>
+                        </svg>
+                    </div>
+                    <!-- 导入在线icon图标 -->
+                    <div class="text">新增网站</div>
+
+                </div>
+            </li>
+        </ul>
+    </main>
+    <script src="//at.alicdn.com/t/font_1995970_9a6ep8sh71v.js"></script>
+    <script src="https://cdn.bootcdn.net/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="main.b70597f3.js"></script>
+</body>
+
+</html>

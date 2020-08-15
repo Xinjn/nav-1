@@ -1,0 +1,200 @@
+/* css reset*/
+*{box-sizing: border-box;}
+*:before,*:after{box-sizing: border-box;}
+*{margin: 0;padding: 0;}
+ul,ol{list-style: none;}
+a{color: inherit;text-decoration: none;}
+img{max-width: 100%;max-height: 100%;}
+/* style */
+/*body{border: 1px solid red;}查看body边界*/
+/*body{background: red;} 特殊（变态）之处：如果给body添加background背景色：浏览器会智能把背景色扩展到整个网页*/
+body{background: #eee;}
+
+.globalHeader{
+    /* border: 1px solid red; */
+    margin: 20px;/*CSS左右居中方法一：直接指定固定左右边距的数值*/
+}
+/* pc端 */
+@media (min-width:500px){
+    .globalHeader{
+    /* border: 1px solid red; */
+    margin: 60px 0;/*CSS左右居中方法一：直接指定固定左右边距的数值*/
+}
+}
+
+/* 搜索框 */
+.searchForm{
+    display: flex;/*CSS布局：flex布局（弹性布局） 前端工程师可以 flex 布局一把梭，解决 80% 以上的需求。未来布局的首选方案*/
+    justify-content: space-between;/*内容对齐类型*/
+}
+
+/* 媒体查询:最小宽度为500px，500以下不考虑 媒体查询就是if else*/
+@media (min-width:500px){
+  .searchForm{
+ /* 只能规定最大宽度 */
+    max-width:400px;
+      /* margin:0 auto; 新手才会写,会覆盖队友的样式*/
+      /* 高手写 */
+    /* 如果一个元素的最大宽度固定了就用居中 */
+      margin-right: auto;
+      margin-left: auto;
+  }
+}
+
+/* 媒体查询:最大宽度为500px，500以上不考虑 */
+@media (max-width:500px){
+  .searchForm{
+  
+  }
+}
+
+.searchForm>input{
+    width: 100%;/*宽度占据（100%）整个父级globalHeader*/
+    margin-right:10px;/*添加与按钮的空隙*/
+    height: 40px;
+    padding: 0 10px;
+/*input默认存在border，不成文规定(潜规则)：必须提前先删掉border，才能设置*/
+    border: none;
+    border:1px solid #ddd;
+    border-radius: 4px;
+}
+.searchForm>button{
+    white-space: nowrap;/*是否换行*/
+    padding: 0 27px;/*调整宽度直接用padding计算*/
+    background: #0282B9;
+    border: none;/*默认存在border，不成文规定(潜规则)：必须提前先删掉border，才能设置*/
+    border:1px solid #ddd;
+    border-radius: 4px;
+    color: white;/*字体颜色*/
+    font-size: 16px;/*字体大小*/
+}
+
+.globalMain{
+    max-width: 900px;
+    /* 如果一个元素的最大宽度固定了就用居中 */
+    margin-right: auto;
+    margin-left: auto;
+}
+
+/* 移动端 */
+.siteList{     
+        margin: 0 20px;/*所有网站整体居中*/ 
+        /*flex布局：设置siteList下所有子元素*/
+        display: flex;
+        flex-wrap: wrap;/*flex换行, white-space针对文本换行*/
+        justify-content: space-between;
+}
+
+/* pc端 */
+/* 媒体查询:最小宽度为500px，500以下不考虑 */
+@media (min-width:500px){
+  .siteList{     
+     /* margin: 0 20px;所有网站整体居中  */
+     /*flex布局：设置siteList下所有子元素*/
+     /* display: flex; */
+     /* flex-wrap: wrap;flex换行, white-space针对文本换行 */
+     /* pc端里需要隐藏掉 */
+     justify-content: flex-start;
+     /* 需要使用平局布局，但平均布局的话不能使用justify-content: space-between;  */
+     /* border: 1px solid red; */
+     margin-right: 0;
+     margin-left: 0;
+     /* 精髓以为li整体添加25px,一行放不下5个div,如何解决呢?添加-25px */
+     margin-right: -25px;
+     
+  }
+}
+
+.siteList>li{
+    /* border: 1px solid red; */
+    margin-bottom: 10px;
+
+
+}
+/* pc端,只看500px以上的页面 */
+@media (min-width:500px){
+    .siteList>li{
+    /* border: 1px solid red; */
+    margin-bottom: 10px;
+    margin-right: 25px;
+
+}
+}
+.siteList .site{
+    border: 1px solid #ddd;
+    width: 160px;
+    /*flex布局：设置site下所有子元素*/
+    display: flex;
+    justify-content: center;/*flex左右居中*/
+    align-items: center;/*flex上下居中*/
+    flex-direction: column;/*flex调整（子元素）主轴方向：默认水平*/
+
+    background: white;
+    border-radius: 4px;
+    padding: 20px 0;
+    position: relative;
+cursor: pointer;
+}
+/* 关闭按钮 */
+.siteList .site>.close{ 
+    position: absolute;
+    right: 5px;
+    top: 5px;
+ display: none;
+}
+/* 关闭按钮 */
+.siteList .site:hover>.close{ 
+ display: block;
+cursor: default;
+}
+
+.siteList .site>.logo{
+    /* border: 1px solid red; */
+    width: 64px;/*设置logo宽高*/
+    height: 64px;
+    /*flex布局logo居中*/
+    display: flex;
+    justify-content: center;/*flex左右居中*/
+    align-items: center;/*flex上下居中*/
+
+    font-size: 64px;
+
+    text-transform: uppercase; /* CSS logo首字母大写 */
+}
+.siteList .site>.link{
+    font-size: 14px;
+    margin-top: 4px;/*logo与文本的上下间隙*/
+}
+.siteList .addButton{
+    /* border: 1px solid red; */
+    width: 160px;/*宽度与其他站点宽度一致*/
+ /*flex布局子元素居中*/
+    display: flex;
+    justify-content: center;/*flex左右居中*/
+    align-items: center;/*flex上下居中*/
+    flex-direction: column;
+
+    background: white;
+    border-radius: 4px;
+    padding: 20px 0;
+}
+.siteList .addButton .icon-wrapper{/*只承载icon*/
+    /* border: 1px solid red; */
+    width: 64px;
+    height:64px;
+    /*flex布局logo居中*/
+    display: flex;
+    justify-content: center;/*flex左右居中*/
+    align-items: center;/*flex上下居中*/
+}
+.siteList .addButton .icon{
+    width: 56px;
+    height:56px;
+  
+}
+.siteList .addButton .text{
+    font-size: 14px;
+    margin-top: 4px;/*logo与文本的上下间隙*/
+}
+
+/*# sourceMappingURL=style.63ddc050.css.map */
